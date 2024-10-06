@@ -186,3 +186,10 @@ footer {
   cursor: pointer;
 }
 
+.how-to-image {
+  width: 100%; /* Responsive width */
+  max-width: 400px; /* Maximum width */
+  margin: 10px 0; /* Margin around images */
+  border-radius: 5px; /* Optional: round corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: shadow for depth */
+}
