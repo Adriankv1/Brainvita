@@ -169,4 +169,20 @@ footer {
   background-color: #ffdd57; /* Endre fargen på brikken for å indikere valg */
 }
 
+#win-message {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#win-message h2 {
+  font-size: 28px;
+  color: green;
+}
+
+#win-message button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
 

@@ -15,18 +15,12 @@ let selectedPeg = null; // Holder styr på hvilken brikke som er valgt
 
 // Hent popup-elementer
 const popup = document.getElementById("popup");
-const closePopupButton = document.getElementById("close-popup");
 const tryAgainButton = document.getElementById("try-again");
 
 // Funksjon for å vise popup
 function showPopup() {
     popup.classList.remove("hidden");
 }
-
-// Funksjon for å skjule popup
-closePopupButton.addEventListener("click", function() {
-    popup.classList.add("hidden");
-});
 
 // Funksjon for å tilbakestille brettet til dets opprinnelige tilstand
 function resetGame() {
@@ -127,17 +121,43 @@ function handleCellClick(row, col) {
             board[(fromRow + row) / 2][(fromCol + col) / 2] = 0; // Fjern brikken som blir hoppet over
             selectedPeg = null; // Tilbakestill valgt brikke
 
-            // Sjekk om det finnes flere gyldige trekk igjen etter trekket
-            if (!hasValidMoves()) {
+            // Sjekk om det er én peg igjen
+            if (checkWinCondition()) {
+                showWinMessage(); // Vis "You won!" meldingen
+            } else if (!hasValidMoves()) {
                 showPopup(); // Hvis det ikke finnes flere gyldige trekk, vis popup
             }
         }
     } else if (board[row][col] === 1) {
-        // Hvis spilleren klikker på en peg, velg den
+        // Hvis brukeren klikker på en brikke, velg den
         selectedPeg = [row, col];
     }
 
     renderBoard(); // Oppdater brettet etter hver handling
 }
+function checkWinCondition() {
+    let pegCount = 0;
+    for (let row = 0; row < board.length; row++) {
+        for (let col = 0; col < board[row].length; col++) {
+            if (board[row][col] === 1) {
+                pegCount++;
+            }
+        }
+    }
+    return pegCount === 1; // Returnerer true hvis det bare er én peg igjen
+}
+
+// Vis "You won!" meldingen
+function showWinMessage() {
+    const winMessage = document.getElementById("win-message");
+    winMessage.classList.remove("hidden");
+}
+
+// Legg til klikkhendelse på "Play Again"-knappen for å starte spillet på nytt
+document.getElementById("play-again").addEventListener("click", function() {
+    resetGame(); // Reset spilleren
+    const winMessage = document.getElementById("win-message");
+    winMessage.classList.add("hidden"); // Skjul "You won!" meldingen
+});
 // Kall renderBoard for å tegne brettet ved oppstart
 renderBoard();
