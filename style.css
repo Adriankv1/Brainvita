@@ -1,0 +1,172 @@
+/* Generelle stiler for kroppen */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Sentrere elementer horisontalt */
+  justify-content: center; /* Sentrere elementer vertikalt */
+  height: 100vh; /* Fyller hele høyden av skjermen */
+  margin: 0; /* Fjerner standard margin */
+  font-family: Arial, sans-serif; /* Legger til en standard font */
+  background-color: #f4f4f4; /* Lys bakgrunnsfarge */
+}
+
+/* Velkomstsiden */
+#welcome {
+  text-align: center;
+  margin-top: 20px;
+  background-color: white; /* Hvit bakgrunn for velkomstseksjonen */
+  padding: 30px; /* Lagt til padding for bedre spacing */
+  border-radius: 10px; /* Rundede kanter */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lagt til skygge for dybde */
+}
+
+#welcome h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #333; /* Mørkere tekstfarge for bedre lesbarhet */
+}
+
+#welcome p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #666; /* Lysere tekstfarge for beskrivelsen */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Sentrere knappene */
+}
+
+/* Button animation */
+#welcome button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none; /* Fjerner standard kantlinje */
+  border-radius: 5px; /* Rundede kanter */
+  background-color: #007bff; /* Blå bakgrunnsfarge */
+  color: white; /* Hvit tekstfarge */
+  transition: background-color 0.3s, transform 0.1s; /* Smooth transition for hover and scale */
+}
+
+#welcome button:hover {
+  background-color: #0056b3; /* Mørkere blå ved hover */
+}
+
+#welcome button:active {
+  transform: scale(0.95); /* Skaler ned når knappen er trykket */
+}
+
+
+/* Popup stiler */
+.popup {
+  position: fixed; /* Fast posisjon */
+  top: 0; /* Plassering fra toppen av skjermen */
+  left: 0; /* Plassering fra venstre av skjermen */
+  width: 100%; /* Fyller bredden av skjermen */
+  height: 100%; /* Fyller høyden av skjermen */
+  background-color: rgba(0, 0, 0, 0.5); /* Gjennomsiktig bakgrunn */
+  display: flex; /* Bruker flexbox for å sentrere innhold */
+  justify-content: center; /* Sentrere innhold horisontalt */
+  align-items: center; /* Sentrere innhold vertikalt */
+}
+
+.popup-content {
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px; /* Rundede kanter på popup */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Skygge for dybde */
+  position: relative;
+}
+
+.popup-content h2 {
+  margin: 0;
+  margin-bottom: 20px;
+  color: #333; /* Mørkere tekstfarge for popup-tittel */
+}
+
+.popup-content p {
+  color: #666; /* Lysere tekstfarge for popup-beskrivelse */
+}
+
+.popup-content button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none; /* Fjerner standard kantlinje */
+  border-radius: 5px; /* Rundede kanter */
+  background-color: #007bff; /* Blå bakgrunnsfarge */
+  color: white; /* Hvit tekstfarge */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.popup-content button:hover {
+  background-color: #0056b3; /* Mørkere blå ved hover */
+}
+
+/* Skjuler popup */
+.hidden {
+  display: none;
+}
+
+/* Footer styles */
+footer {
+  position: absolute; /* Fixed position at the bottom */
+  bottom: 0; /* Align to the bottom of the page */
+  left: 0; /* Align to the left of the page */
+  width: 100%; /* Full width */
+  text-align: center; /* Center the text */
+  padding: 10px 0; /* Padding for spacing */
+  background-color: #007bff; /* Match the button color or use a different one */
+  color: white; /* White text color */
+  font-size: 16px; /* Font size */
+  font-weight: bold; 
+}
+
+
+/* Stiler for brettet */
+#board {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+  gap: 5px;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.peg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: black;
+  margin-left: 5px;
+}
+
+.peg:hover {
+  background-color: #444;  /* Mørkere farge for å indikere at den kan velges */
+  cursor: pointer;
+}
+
+.empty {
+  background-color: white; /* Farge på tomme celler */
+}
+
+.invalid {
+  background-color: lightgray; /* Farge på ugyldige celler */
+  opacity: 0%;
+}
+
+.selected {
+  box-shadow: 0 0 10px 5px rgba(255, 215, 0, 0.8); /* Gul skygge rundt den valgte brikken */
+  background-color: #ffdd57; /* Endre fargen på brikken for å indikere valg */
+}
+
+
